@@ -58,22 +58,58 @@
 	<script>
 		let params = [];
 		
+		function encodeOperator(operator) {
+			if (operator === "+") {
+				return "%2B"
+			} else if (operator === "/") {
+				return "%2F"
+			} else if (operator === "*") {
+				return "%2A"
+			} else {
+				return operator
+			}
+		}
+		
 		function addOperator(operator) {
 			let inputField = document.getElementById("inputField");
 			params.push(inputField.value);
-			params.push(operator);
+			encodedOperator = encodeOperator(operator)
+			params.push(encodedOperator);
 			inputField.value = "";
 		}
 	    function addNumber(number) {
 	        let inputField = document.getElementById("inputField");
 	        inputField.value += number;
 	    }
-	    function submitForm() {
-	        let inputField = document.getElementById("inputField").value;
-			params.push(inputField);
+	    async function submitForm() {
+	        let inputField = document.getElementById("inputField");
+			params.push(inputField.value);
 	    	console.log(params);
-	    }
+			let url = "http://localhost:8080/calculateJSON";
+			console.log(url);
+			let queryString = "?operand1=" + params[0] + "&operand2=" + params[2] + "&operation=" + params[1]
+			console.log(queryString)
+			await fetch(url + queryString)
+			    .then(response => {
+			        if (!response.ok) {
+			            throw new Error('Network response was not ok');
+			        }
+					console.log('response success');
+			        return response.text();
+			    })
+			    .then(text => {
+			        console.log('Response:', text);
+					inputField.value = text;
+					// reset params
+					params = []
+			        
+			    })
+			    .catch(error => {
+			        console.error('There was a problem with the fetch operation:', error); // Handle errors here
+			    });
 
+	    }
+		
 	</script>
 </body>
 </html>

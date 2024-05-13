@@ -23,8 +23,29 @@ public class RESTController {
 		 * 
 		 * return "Calculation Failed: Not recognized Operation";
 		 */
+		Integer result = 0;
 		
+		final Integer OPERAND_AS_INT1 = Integer.valueOf(operand1);
+		final Integer OPERAND_AS_INT2 = Integer.valueOf(operand2);
 		
-		return operand1 + operation + operand2;
+		// URL Encodings for Operators
+		final String PLUS = "+";
+		final String DIVIDE = "/";
+		final String MINUS = "-";
+		final String MULTIPLY = "*";
+		
+		if (PLUS.equals(operation)) {
+			result = OPERAND_AS_INT1 + OPERAND_AS_INT2;
+		} else if (MINUS.equals(operation)) {
+			result = OPERAND_AS_INT1 - OPERAND_AS_INT2;
+		} else if (DIVIDE.equals(operation)) {
+			result = OPERAND_AS_INT1 / OPERAND_AS_INT2;
+		} else if (MULTIPLY.equals(operation)) {
+			result = OPERAND_AS_INT1 * OPERAND_AS_INT2;
+		} else {
+			return "INVALID OPERATION" + operation;
+		}
+//		operand1 + operation + operand2
+		return Integer.toString(result);
 	}
 }
