@@ -19,45 +19,61 @@
 	            display: flex;
 	        }
 			#inputField{
-				margin-left: 15px;
-				width: 500px;
-				height: 120px;
 				font-size: 48px;
 			}
 	</style>
 </head>
-<body>
-
-		<input type="text" id="inputField" class="form-control" >
-		<div class="button-row">
-		    <button type="button" class="btn btn-primary" onclick="addNumber(1)">1</button>
-		    <button type="button" class="btn btn-primary" onclick="addNumber(2)">2</button>
-		    <button type="button" class="btn btn-primary" onclick="addNumber(3)">3</button>
-			<button type="button" class="btn btn-secondary" onclick="addOperator('+')">+</button>
+<div>
+	<div class="container">
+		<div class="row">
+			<div class="col-6">
+				<input type="text" id="inputField" class="form-control" >
+				<div class="button-row">
+				    <button type="button" class="btn btn-primary" onclick="addNumber(1)">1</button>
+				    <button type="button" class="btn btn-primary" onclick="addNumber(2)">2</button>
+				    <button type="button" class="btn btn-primary" onclick="addNumber(3)">3</button>
+					<button type="button" class="btn btn-secondary" onclick="addOperator('+')">+</button>
+				</div>
+				<div class="button-row">
+				    <button type="button" class="btn btn-primary" onclick="addNumber(4)">4</button>
+				    <button type="button" class="btn btn-primary" onclick="addNumber(5)">5</button>
+				    <button type="button" class="btn btn-primary" onclick="addNumber(6)">6</button>
+					<button type="button" class="btn btn-secondary" onclick="addOperator('-')">-</button>
+				</div>
+				<div class="button-row">
+				    <button type="button" class="btn btn-primary" onclick="addNumber(7)">7</button>
+				    <button type="button" class="btn btn-primary" onclick="addNumber(8)">8</button>
+				    <button type="button" class="btn btn-primary" onclick="addNumber(9)">9</button>
+					<button type="button" class="btn btn-secondary" onclick="addOperator('*')">*</button>
+				</div>
+				<div class="button-row">
+				    <button type="button" class="btn btn-success" onclick="submitForm()">Submit</button>
+					<button type="button" class="btn btn-primary" onclick="addNumber(0)">0</button>
+					<button type="reset" class="btn btn-danger">Reset</button>
+					<button type="button" class="btn btn-secondary" onclick="addOperator('/')">/</button>
+				</div>
+			</div>
+			<div class="col-6">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th scope="col">History Calculation</th>
+						</tr>
+					</thead>
+					<tbody id="table-body">
+						<tr>
+							<th>1+1=3</th>
+						</tr>
+					</tbody>
+				</table>
+			</div>
 		</div>
-		<div class="button-row">
-		    <button type="button" class="btn btn-primary" onclick="addNumber(4)">4</button>
-		    <button type="button" class="btn btn-primary" onclick="addNumber(5)">5</button>
-		    <button type="button" class="btn btn-primary" onclick="addNumber(6)">6</button>
-			<button type="button" class="btn btn-secondary" onclick="addOperator('-')">-</button>
-		</div>
-		<div class="button-row">
-		    <button type="button" class="btn btn-primary" onclick="addNumber(7)">7</button>
-		    <button type="button" class="btn btn-primary" onclick="addNumber(8)">8</button>
-		    <button type="button" class="btn btn-primary" onclick="addNumber(9)">9</button>
-			<button type="button" class="btn btn-secondary" onclick="addOperator('*')">*</button>
-		</div>
-		<div class="button-row">
-		    <button type="button" class="btn btn-success" onclick="submitForm()">Submit</button>
-			<button type="button" class="btn btn-primary" onclick="addNumber(0)">0</button>
-			<button type="reset" class="btn btn-danger">Reset</button>
-			<button type="button" class="btn btn-secondary" onclick="addOperator('/')">/</button>
-		</div>
-	
+	</div>
 	
 	<script>
 		let params = [];
 		
+		// helper function
 		function encodeOperator(operator) {
 			if (operator === "+") {
 				return "%2B"
@@ -67,6 +83,23 @@
 				return "%2A"
 			} else {
 				return operator
+			}
+		}
+		
+		// helper function
+		function decodeOperator(operator) {
+			switch(operator) {
+				case "%2B": 
+					return "+";
+					break;
+				case "%2F":
+					return "/";
+					break;
+				case "%2A":
+					return "*";
+					break;
+				default:
+					return "-";
 			}
 		}
 		
@@ -82,13 +115,23 @@
 	        inputField.value += number;
 	    }
 	    async function submitForm() {
+			// update params
 	        let inputField = document.getElementById("inputField");
 			params.push(inputField.value);
 	    	console.log(params);
+			
+			// deconstruct params
+			let operand1 = params[0];
+			let encodedOperator = params[1];
+			let decodedOperator = decodeOperator(params[1]);
+			let operand2 = params[2];
+			
+			// create fetch url
 			let url = "http://localhost:8080/calculateJSON";
 			console.log(url);
-			let queryString = "?operand1=" + params[0] + "&operand2=" + params[2] + "&operation=" + params[1]
+			let queryString = "?operand1=" + operand1 + "&operand2=" + operand2 + "&operation=" + encodedOperator;
 			console.log(queryString)
+			
 			await fetch(url + queryString)
 			    .then(response => {
 			        if (!response.ok) {
@@ -100,9 +143,20 @@
 			    .then(text => {
 			        console.log('Response:', text);
 					inputField.value = text;
+					
+					// Create a new entry in the history table
+					let newTr = document.createElement("tr");
+					let newTh = document.createElement("th");
+					let tableBody = document.getElementById("table-body");
+					
+					newTh.innerHTML = operand1 + decodedOperator + operand2 + "=" + text;
+					newTr.appendChild(newTh);
+					tableBody.appendChild(newTr);
+					
 					// reset params
-					params = []
+					params = [];
 			        
+					
 			    })
 			    .catch(error => {
 			        console.error('There was a problem with the fetch operation:', error); // Handle errors here
