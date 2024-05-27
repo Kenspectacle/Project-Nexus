@@ -23,10 +23,10 @@ public class RESTController {
 		 * 
 		 * return "Calculation Failed: Not recognized Operation";
 		 */
-		Integer result = 0;
+		Float result = 0.0f;
 		
-		final Integer OPERAND_AS_INT1 = Integer.valueOf(operand1);
-		final Integer OPERAND_AS_INT2 = Integer.valueOf(operand2);
+		final Float OPERAND1 = Float.valueOf(operand1);
+		final Float OPERAND2 = Float.valueOf(operand2);
 		
 		// URL Encodings for Operators
 		final String PLUS = "+";
@@ -35,17 +35,24 @@ public class RESTController {
 		final String MULTIPLY = "*";
 		
 		if (PLUS.equals(operation)) {
-			result = OPERAND_AS_INT1 + OPERAND_AS_INT2;
+			result = OPERAND1 + OPERAND2;
 		} else if (MINUS.equals(operation)) {
-			result = OPERAND_AS_INT1 - OPERAND_AS_INT2;
+			result = OPERAND1 - OPERAND2;
 		} else if (DIVIDE.equals(operation)) {
-			result = OPERAND_AS_INT1 / OPERAND_AS_INT2;
+			result = OPERAND1 / OPERAND2;
 		} else if (MULTIPLY.equals(operation)) {
-			result = OPERAND_AS_INT1 * OPERAND_AS_INT2;
+			result = OPERAND1 * OPERAND2;
 		} else {
 			return "INVALID OPERATION" + operation;
 		}
 //		operand1 + operation + operand2
-		return Integer.toString(result);
+		return Float.toString(result);
 	}
 }
+
+
+// float numbers verarbeiten 
+// Modulo
+// Jede operation eigene Klasse
+
+//result = Operation.Plus(OPERAND_AS_INT1 + OPERAND_AS_INT2;)
