@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class OperationRESTController {
 	
 	@GetMapping("/calculateJSON")
-	public String calculate(@RequestParam(name = "input") String input) {
+	public String calculate(@RequestParam(name = "input") String expression) {
 		// TODO: Calculation
 		/*
 		 * - Operation: PLUS, MINUS, MULTIPLY, DIVISION
@@ -23,9 +23,9 @@ public class OperationRESTController {
 		 * 
 		 * return "Calculation Failed: Not recognized Operation";
 		 */
-		Float result = 0.0f;
-		System.out.println(input);
-		return Float.toString(0.0f);
+		String postfix = ExpressionConverter.infixToPostfix(expression);
+		float result = ExpressionEvaluator.evaluatePostfix(postfix);
+		return Float.toString(result);
 //		final Float OPERAND1 = Float.valueOf(operand1);
 //		final Float OPERAND2 = Float.valueOf(operand2);
 //
