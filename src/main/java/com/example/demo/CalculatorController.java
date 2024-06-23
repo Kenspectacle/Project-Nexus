@@ -5,12 +5,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class HTMLController {
+public class CalculatorController {
 	
 	@GetMapping("/CalcApp")
 	public ModelAndView startCalculator() {
 		
-		ModelAndView calculatorMV = new ModelAndView("CalculatorApplication");
+		ModelAndView calculatorMV = new ModelAndView("CalculatorView");
 		
 		return calculatorMV;
 	}
