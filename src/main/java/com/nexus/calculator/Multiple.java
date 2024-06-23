@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.nexus.calculator;
 
 public class Multiple extends Operation {
 

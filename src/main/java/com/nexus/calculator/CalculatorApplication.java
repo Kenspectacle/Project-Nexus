@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.nexus.calculator;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
