@@ -35,13 +35,13 @@ public class RESTController {
 		final String MULTIPLY = "*";
 		
 		if (PLUS.equals(operation)) {
-			result = OPERAND1 + OPERAND2;
+			result = new Plus().operate(OPERAND1, OPERAND2);
 		} else if (MINUS.equals(operation)) {
-			result = OPERAND1 - OPERAND2;
+			result = new Minus().operate(OPERAND1, OPERAND2);
 		} else if (DIVIDE.equals(operation)) {
-			result = OPERAND1 / OPERAND2;
+			result = new Divide().operate(OPERAND1, OPERAND2);
 		} else if (MULTIPLY.equals(operation)) {
-			result = OPERAND1 * OPERAND2;
+			result = new Multiple().operate(OPERAND1, OPERAND2);
 		} else {
 			return "INVALID OPERATION" + operation;
 		}
