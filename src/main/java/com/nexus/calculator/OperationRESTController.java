@@ -23,9 +23,14 @@ public class OperationRESTController {
 		 * 
 		 * return "Calculation Failed: Not recognized Operation";
 		 */
-		String postfix = ExpressionConverter.infixToPostfix(expression);
-		float result = ExpressionEvaluator.evaluatePostfix(postfix);
-		return Float.toString(result);
+		try {
+			String postfix = ExpressionConverter.infixToPostfix(expression);
+			float result = ExpressionEvaluator.evaluatePostfix(postfix);
+			return Float.toString(result);
+		} catch (Exception e) {
+			return "Calculation Failed: Not recognized Operation";
+		}
+
 //		final Float OPERAND1 = Float.valueOf(operand1);
 //		final Float OPERAND2 = Float.valueOf(operand2);
 //
