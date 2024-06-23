@@ -75,6 +75,7 @@
 	</div>
 	
 	<script>
+		let inputField = document.getElementById("inputField");
 
 		// helper function
 		function encodeOperator(operator) {
@@ -90,7 +91,6 @@
 		}
 
 	    function addString(String) {
-	        let inputField = document.getElementById("inputField");
 	        inputField.value += String;
 	    }
 	    async function submitForm() {
