@@ -13,6 +13,10 @@ function encodeOperator(operator) {
     }
 }
 
+function resetField() {
+    inputField.value = "";
+}
+
 function addString(String) {
     inputField.value += String;
 }
