@@ -1,22 +1,23 @@
-import React from 'react';
-import CalculatorDisplay from './CalculatorDisplay';
-import HistoryTable from './HistoryTable';
-
+import React from "react";
+import CalculatorDisplay from "./CalculatorDisplay";
+import HistoryTable from "./HistoryTable";
+import NavBar from "./NavBar";
 function CalculatorBody() {
-    
-      
-    return (
-        <div className="container">
-            <div className="row">
-                <div className="col-6">
-                    <CalculatorDisplay />
-                </div>
-                <div className="col-6">
-                    <HistoryTable />
-                </div>
-            </div>
-        </div>                    
-    );
+  return (
+    <>
+      <NavBar />
+      <div className="container mt-5">
+        <div className="row">
+          <div className="col-6">
+            <CalculatorDisplay />
+          </div>
+          <div className="col-6">
+            <HistoryTable />
+          </div>
+        </div>
+      </div>
+    </>
+  );
 }
 
 export default CalculatorBody;
