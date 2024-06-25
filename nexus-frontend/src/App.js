@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
 import { Route, Routes } from "react-router-dom";
-import CalculatorApp  from "./components/calculatorApp";
+import CalculatorApp  from "./components/CalculatorApp";
 
 function App() {
   return (
