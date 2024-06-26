@@ -5,6 +5,11 @@ const Button = ({ variant, children }) => {
     const addString = (input) => {
         document.getElementById('inputField').value += input
       };
+    
+      const backDelete = () => {
+        const inputField = document.getElementById('inputField');
+        inputField.value = inputField.value.slice(0, -1);
+    }
 
       // helper function
     function encodeOperator(operator) {
@@ -102,6 +107,15 @@ const Button = ({ variant, children }) => {
                     type="reset" 
                     className={`${styles.calculatorBtn} btn btn-danger`} 
                     onClick={resetField}>
+                  {children}
+                </button>
+            );
+        case "backspace":
+            return (
+                <button 
+                    type="button" 
+                    className={`${styles.calculatorBtn} btn btn-warning`} 
+                    onClick={backDelete}>
                   {children}
                 </button>
             );

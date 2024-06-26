@@ -10,6 +10,8 @@ function CalculatorDisplay() {
             <div className="button-row">
                 <Button variant="number">(</Button>
                 <Button variant="number">)</Button>
+                <Button variant="reset">Reset</Button>
+                <Button variant="backspace">&#60;=</Button>
             </div>
 
             <div className="button-row">
@@ -36,7 +38,7 @@ function CalculatorDisplay() {
             <div className="button-row">
                 <Button variant="submit">Submit</Button>
                 <Button variant="number">0</Button>
-                <Button variant="reset">Reset</Button>
+                <Button variant="operator">.</Button>
                 <Button variant="operator">/</Button>
             </div>
         </>
