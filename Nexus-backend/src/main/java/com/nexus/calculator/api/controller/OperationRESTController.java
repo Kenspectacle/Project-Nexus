@@ -1,4 +1,4 @@
-package com.nexus.calculator.controller;
+package com.nexus.calculator.api.controller;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
