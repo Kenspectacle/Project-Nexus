@@ -1,4 +1,4 @@
-package com.nexus.calculator;
+package com.nexus.calculator.controller;
 
 import java.util.Stack;
 

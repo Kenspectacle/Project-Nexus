@@ -1,4 +1,4 @@
-package com.nexus.calculator;
+package com.nexus.calculator.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
