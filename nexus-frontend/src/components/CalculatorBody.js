@@ -7,10 +7,10 @@ function CalculatorBody() {
     <>
       <div className="container mt-5 mb-5">
         <div className="row">
-          <div className="col-6">
+          <div className="col-md-6 col-12">
             <CalculatorDisplay />
           </div>
-          <div className="col-6">
+          <div className="col-md-6 col-12">
             <HistoryTable />
           </div>
         </div>
