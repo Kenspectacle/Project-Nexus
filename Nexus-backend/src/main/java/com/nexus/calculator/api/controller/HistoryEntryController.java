@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @CrossOrigin
@@ -25,8 +26,8 @@ public class HistoryEntryController {
     }
 
     @PutMapping("/updateHistoryEntry")
-    public HistoryEntry updateHistoryEntry(HistoryEntry historyEntry) {
-        return service.saveHistoryEntry(historyEntry);
+    public Optional<HistoryEntry> updateHistoryEntry(@RequestBody HistoryEntry historyEntry) {
+        return service.updateHistoryEntry(historyEntry);
     }
 
     @DeleteMapping("/deleteHistoryEntry/{id}")
