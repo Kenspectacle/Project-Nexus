@@ -20,7 +20,7 @@ public class HistoryEntryController {
     }
 
     @PostMapping("/addHistoryEntry")
-    public HistoryEntry addHistoryEntry(HistoryEntry historyEntry) {
+    public HistoryEntry addHistoryEntry(@RequestBody HistoryEntry historyEntry) {
         return service.saveHistoryEntry(historyEntry);
     }
 
