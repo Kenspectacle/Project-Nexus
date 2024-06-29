@@ -8,17 +8,17 @@ public class HistoryEntry {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
     private String expression;
 
     private String note;
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -41,7 +41,7 @@ public class HistoryEntry {
 
     }
 
-    public HistoryEntry(int id, String expression, String note) {
+    public HistoryEntry(Long id, String expression, String note) {
         this.id = id;
         this.expression = expression;
         this.note = note;
