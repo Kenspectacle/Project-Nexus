@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './CalculatorButton.module.css';
 
-const Button = ({ variant, children }) => {
+const Button = ({ variant, children, triggerHistoryUpdate }) => {
     const addString = (input) => {
         document.getElementById('inputField').value += input
       };
@@ -51,18 +51,7 @@ const Button = ({ variant, children }) => {
                 console.log('Response:', text);
     
                 // Create a new entry in the history table
-                let newTr = document.createElement("tr");
-                let newTd = document.createElement("td");
-                let newTd2 = document.createElement("td");
-                let newTd3 = document.createElement("td");
-                let tableBody = document.getElementById("table-body");
-    
-                newTd.innerHTML = text;
-                newTr.appendChild(newTd);
-                newTr.appendChild(newTd2);
-                newTr.appendChild(newTd3);
-
-                tableBody.appendChild(newTr);
+                triggerHistoryUpdate();
     
                 // update input field
                 let resultingValue = text.split("=")[1].trim()

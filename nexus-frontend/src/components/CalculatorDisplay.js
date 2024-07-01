@@ -2,7 +2,7 @@ import React from 'react'
 import Button from './CalculatorButton';
 import styles from './CalculatorDisplay.module.css';
 
-function CalculatorDisplay() {
+function CalculatorDisplay( { triggerHistoryUpdate }) {
 
     return (
         <div className={styles.calculatorDisplay}>
@@ -29,7 +29,7 @@ function CalculatorDisplay() {
                 <Button variant="number">9</Button>
                 <Button variant="operator">*</Button>
             
-                <Button variant="submit">Submit</Button>
+                <Button variant="submit" triggerHistoryUpdate={triggerHistoryUpdate}>Submit</Button>
                 <Button variant="number">0</Button>
                 <Button variant="operator">.</Button>
                 <Button variant="operator">/</Button>

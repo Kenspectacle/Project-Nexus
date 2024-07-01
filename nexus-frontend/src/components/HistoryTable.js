@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ActionBar from "./ActionBar";
 
-function HistoryTable() {
+function HistoryTable({ updateHistory }) {
   const [historyEntries, setHistoryEntries] = useState([]);
 
   useEffect(() => {
@@ -17,7 +17,7 @@ function HistoryTable() {
         setHistoryEntries(data);
       })
       .catch(error => console.error('Error fetching data:', error));
-  }, []);
+  }, [updateHistory]);
   
 
   return (
