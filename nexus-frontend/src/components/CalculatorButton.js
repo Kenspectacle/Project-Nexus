@@ -65,7 +65,8 @@ const Button = ({ variant, children }) => {
                 tableBody.appendChild(newTr);
     
                 // update input field
-                inputField.value = text;
+                let resultingValue = text.split("=")[1].trim()
+                inputField.value = resultingValue;
     
             })
             .catch(error => {
