@@ -31,11 +31,16 @@ const ActionButton = ({ variant, objectId}) => {
         const button = buttonRef.current;
         console.log("button:" , button)
         if (button) {
-            const grandparent = button.parentElement.parentElement;
-            console.log("grandparent:", grandparent)
-            if (grandparent && grandparent.parentElement) {
-                grandparent.parentElement.removeChild(grandparent);
+            const parent = button.parentElement;
+            console.log(parent instanceof HTMLElement);
+            if (parent instanceof HTMLElement) {
+                const grandparent = parent.parentElement;
+                console.log("grandparent:", grandparent)
+                if (grandparent && grandparent.parentElement) {
+                    grandparent.parentElement.removeChild(grandparent);
+                }
             }
+            
         }
     }
 
