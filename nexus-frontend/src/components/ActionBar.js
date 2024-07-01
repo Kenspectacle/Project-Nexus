@@ -1,7 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import ActionButton from "./ActionButton";
 
-const ActionBar = ({ objectId }) => {
+const ActionBar = ({ objectId, onNoteUpdate }) => {
+    // TODO: make the editing section
+    const [isEditing, setIsEditing] = useState(false);
+    const [note, setNote] = useState("")
+
+    const handleUpdateClick = () => {
+        setIsEditing(true);
+    };
+
+
     return (
         <>
             <ActionButton variant="update" objectId={objectId}></ActionButton>

@@ -1,4 +1,5 @@
 import logo from './logo.svg';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
 import { Route, Routes } from "react-router-dom";
@@ -11,5 +12,7 @@ function App() {
     </Routes>
   );
 }
+
+
 
 export default App;
