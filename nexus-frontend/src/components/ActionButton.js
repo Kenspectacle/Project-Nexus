@@ -44,29 +44,16 @@ const ActionButton = ({ variant, objectId}) => {
         }
     }
 
-    switch(variant) {
-        case "update":
-            return(
-                <button
-                type="button"
-                className="btn btn-info"
-                ref={buttonRef}
-                >
-                update
-                </button>
-            )
-        case "delete":
-            return(
-                <button
-                type="button"
-                className="btn btn-danger"
-                onClick={sendDeleteRequest}
-                ref={buttonRef}
-                >
-                delete
-                </button>
-            )
-    }
+    return(
+        <button
+            type="button"
+            className={variant === "delete" ? "btn btn-danger" : "btn btn-info"}
+            onClick={variant === "delete" ? sendDeleteRequest : undefined}
+            ref={buttonRef}
+        >
+            {variant}
+        </button>
+    )
 
 }
 
