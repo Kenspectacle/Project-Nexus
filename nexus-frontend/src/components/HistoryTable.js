@@ -36,7 +36,7 @@ function HistoryTable() {
             <tr key={entry.id}>
               <td>{entry.expression}</td>
               <td>{entry.note}</td>
-              <td><ActionButton variant="update"></ActionButton><ActionButton variant="delete"></ActionButton></td>
+              <td><ActionButton variant="update" objectId={entry.id}></ActionButton><ActionButton variant="delete" objectId={entry.id}></ActionButton></td>
             </tr>
           ))}
         </tbody>
