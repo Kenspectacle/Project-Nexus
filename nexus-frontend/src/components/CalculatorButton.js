@@ -28,7 +28,7 @@ const Button = ({ variant, children }) => {
         let inputField = document.getElementById("inputField");
 
         // create fetch url
-        let url = "http://localhost:8080/calculateJSON";
+        let url = "http://localhost:8080/calculateAndAddHistoryEntry";
         console.log(url);
     
         // decode input
@@ -52,11 +52,16 @@ const Button = ({ variant, children }) => {
     
                 // Create a new entry in the history table
                 let newTr = document.createElement("tr");
-                let newTh = document.createElement("th");
+                let newTd = document.createElement("td");
+                let newTd2 = document.createElement("td");
+                let newTd3 = document.createElement("td");
                 let tableBody = document.getElementById("table-body");
     
-                newTh.innerHTML = inputField.value + "=" + text;
-                newTr.appendChild(newTh);
+                newTd.innerHTML = text;
+                newTr.appendChild(newTd);
+                newTr.appendChild(newTd2);
+                newTr.appendChild(newTd3);
+
                 tableBody.appendChild(newTr);
     
                 // update input field
