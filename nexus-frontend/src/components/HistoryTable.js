@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import ActionButton from "./ActionButton";
+import ActionBar from "./ActionBar";
 
 function HistoryTable() {
   const [historyEntries, setHistoryEntries] = useState([]);
@@ -36,7 +36,7 @@ function HistoryTable() {
             <tr key={entry.id}>
               <td>{entry.expression}</td>
               <td>{entry.note}</td>
-              <td><ActionButton variant="update" objectId={entry.id}></ActionButton><ActionButton variant="delete" objectId={entry.id}></ActionButton></td>
+              <td><ActionBar objectId={entry.id}></ActionBar></td>
             </tr>
           ))}
         </tbody>
