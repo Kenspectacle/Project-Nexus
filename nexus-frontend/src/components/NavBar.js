@@ -3,6 +3,21 @@ import NavbarBrand from "./NavbarBrand";
 import NavbarItem from "./NavbarItem";
 import NavbarDropdownItem from "./NavbarDropdownItem";
 import NavbarLoginButton from "./NavbarLoginButton";
+import NavbarDropdown from "./NavbarDropdown";
+
+// const categories = {
+//   0: {
+//     name: "categ1",
+//     link: "/categ",
+//     id: "vsdjbuhj"
+//   }
+// } 
+
+// function rendewrITem() => {
+//   return (
+//     <NavbarDropdownItem link="/calcApp"></NavbarDropdownItem>
+//   )
+// }
 
 function NavBar() {
   return (
@@ -11,36 +26,13 @@ function NavBar() {
         <NavbarBrand />
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <NavbarItem link="/" >
-              Home
-            </NavbarItem>
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Projects
-              </a>
-              <ul class="dropdown-menu">
-                <NavbarDropdownItem link="/calcApp">
-                  Calculator App
-                </NavbarDropdownItem>
-                <li>
-                  <hr class="dropdown-divider" />
-                </li>
-                <NavbarDropdownItem link="#">
-                  placeholder
-                </NavbarDropdownItem>
-              </ul>
-            </li>
+          {/* {categories.map(_index, item => () { 
+               return item.name
+          }  */}
+            <NavbarItem link="/">Home</NavbarItem>
+            <NavbarDropdown name="Project" />              
           </ul>
-          <NavbarLoginButton link="/login">
-            login
-          </NavbarLoginButton>
-          
+        <NavbarLoginButton link="/login">login</NavbarLoginButton>
         </div>
       </div>
     </nav>
