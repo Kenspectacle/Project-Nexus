@@ -2,6 +2,7 @@ import React from "react";
 import NavbarBrand from "./NavbarBrand";
 import NavbarItem from "./NavbarItem";
 import NavbarDropdownItem from "./NavbarDropdownItem";
+import NavbarLoginButton from "./NavbarLoginButton";
 
 function NavBar() {
   return (
@@ -36,9 +37,9 @@ function NavBar() {
               </ul>
             </li>
           </ul>
-          <button class="btn btn-outline-danger" type="submit">
+          <NavbarLoginButton link="/login">
             login
-          </button>
+          </NavbarLoginButton>
           
         </div>
       </div>
