@@ -1,7 +1,7 @@
 import React from "react";
 import NavbarDropdownItem from "./NavbarDropdownItem";
 
-function NavbarDropdown({ name }) {
+function NavbarDropdown({ name, children }) {
     return(
         <li class="nav-item dropdown">
                 <a
@@ -14,9 +14,7 @@ function NavbarDropdown({ name }) {
                     {name}
                 </a>
                 <ul class="dropdown-menu">
-                    <NavbarDropdownItem link="/calcApp">Calculator App</NavbarDropdownItem>
-                    <li><hr class="dropdown-divider" /></li>
-                    <NavbarDropdownItem link="#">placeholder</NavbarDropdownItem>
+                    {children}
                 </ul>
         </li>
     );
