@@ -1,0 +1,6 @@
+.welcomeSpan {
+    display: flex;
+    font-size: 50px;
+    color: blue;
+    justify-content: center;
+}
