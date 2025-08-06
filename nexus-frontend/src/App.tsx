@@ -6,6 +6,7 @@ import CalculatorApp  from "./components/Calculator/CalculatorApp";
 import Homepage from './components/Homepage/Homepage';
 import LoginPage from './components/LoginPage/LoginPage';
 import RegisterPage from './components/RegisterPage/RegisterPage';
+import React from 'react';
 
 function App() {
   return (
