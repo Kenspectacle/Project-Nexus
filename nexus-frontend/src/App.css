@@ -1,3 +1,8 @@
+body {
+  background-image: url('./images/image.png');
+  background-repeat: repeat;
+  color: white;
+}
 
 #inputField{
   font-size: 48px;
