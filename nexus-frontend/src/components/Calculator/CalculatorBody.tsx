@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import CalculatorDisplay from "./CalculatorDisplay";
-import HistoryTable from "./HistoryTable";
+import CalculatorDisplay from "./CalculatorDisplay.tsx";
+import HistoryTable from "./HistoryTable.tsx";
 
 function CalculatorBody() {
   const [updateHistory, setUpdateHistory] = useState(false);

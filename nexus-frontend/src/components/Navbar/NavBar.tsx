@@ -1,9 +1,9 @@
 import React from "react";
-import NavbarBrand from "./NavbarBrand";
-import NavbarItem from "./NavbarItem";
-import NavbarDropdownItem from "./NavbarDropdownItem";
-import NavbarLoginButton from "./NavbarLoginButton";
-import NavbarDropdown from "./NavbarDropdown";
+import NavbarBrand from "./NavbarBrand.tsx";
+import NavbarItem from "./NavbarItem.tsx";
+import NavbarDropdownItem from "./NavbarDropdownItem.tsx";
+import NavbarLoginButton from "./NavbarLoginButton.tsx";
+import NavbarDropdown from "./NavbarDropdown.tsx";
 
 function NavBar() {
   return (

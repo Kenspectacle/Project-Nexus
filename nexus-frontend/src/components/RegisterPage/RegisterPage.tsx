@@ -1,6 +1,6 @@
 import React from "react";
-import NavBar from "../Navbar/NavBar";
-import Footer from "../Footer/Footer";
+import NavBar from "../Navbar/NavBar.tsx";
+import Footer from "../Footer/Footer.tsx";
 
 const RegisterPage = () => {
     return(

@@ -1,8 +1,8 @@
 import React from "react";
-import NavBar from "../Navbar/NavBar";
-import Footer from "../Footer/Footer";
-import WelcomeMessage from "./WelcomeMessage";
-import IntroductionSection from "./IntroductionSection";
+import NavBar from "../Navbar/NavBar.tsx";
+import Footer from "../Footer/Footer.tsx";
+import WelcomeMessage from "./WelcomeMessage.tsx";
+import IntroductionSection from "./IntroductionSection.tsx";
 
 const Homepage = () => {
     return(

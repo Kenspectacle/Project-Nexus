@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ActionButton from "./ActionButton";
+import ActionButton from "./ActionButton.tsx";
 
 const ActionBar = ({ objectId, onNoteUpdate }) => {
     // TODO: make the editing section

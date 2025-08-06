@@ -1,7 +1,7 @@
 import React from 'react';
-import CalculatorBody from './CalculatorBody';
-import NavBar from "../Navbar/NavBar";
-import Footer from "../Footer/Footer";
+import CalculatorBody from './CalculatorBody.tsx';
+import NavBar from "../Navbar/NavBar.tsx";
+import Footer from "../Footer/Footer.tsx";
 
 function CalculatorApp() {
     return (

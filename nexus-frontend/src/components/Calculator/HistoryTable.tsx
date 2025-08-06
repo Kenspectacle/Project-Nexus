@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import ActionBar from "../Actions/ActionBar";
+import ActionBar from "../Actions/ActionBar.tsx";
 
 function HistoryTable({ updateHistory }) {
   const [historyEntries, setHistoryEntries] = useState([]);

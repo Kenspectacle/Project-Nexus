@@ -1,5 +1,5 @@
 import React from 'react'
-import Button from './CalculatorButton';
+import Button from './CalculatorButton.tsx';
 import styles from './CalculatorDisplay.module.css';
 
 function CalculatorDisplay( { triggerHistoryUpdate }) {
