@@ -1,14 +1,13 @@
-
 export default function Footer() {
   return (
     <>
-      <footer class="bg-dark text-white text-center p-4">
-            <div class="container">
+      <footer className="bg-dark text-white text-center p-4 fixed-bottom">
+            <div className="container">
                 <p>&copy; 2024 Kenny Gozali.</p>
-                {/* <ul class="list-inline">
-                    <li class="list-inline-item"><a href="#" class="text-white">Privacy Policy</a></li>
-                    <li class="list-inline-item"><a href="#" class="text-white">Terms of Use</a></li>
-                    <li class="list-inline-item"><a href="#" class="text-white">Contact Us</a></li>
+                {/* <ul className="list-inline">
+                    <li className="list-inline-item"><a href="#" className="text-white">Privacy Policy</a></li>
+                    <li className="list-inline-item"><a href="#" className="text-white">Terms of Use</a></li>
+                    <li className="list-inline-item"><a href="#" className="text-white">Contact Us</a></li>
                 </ul> */}
             </div>
         </footer>
